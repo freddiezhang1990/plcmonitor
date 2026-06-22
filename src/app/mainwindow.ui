@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1600</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PLC数据监控系统</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: #F5F5F5; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <property name="leftMargin">
+       <number>15</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="logoLabel">
+        <property name="styleSheet">
+         <string notr="true">font-size: 20px; padding-right: 5px;</string>
+        </property>
+        <property name="text">
+         <string>🏭</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="titleLabel">
+        <property name="styleSheet">
+         <string notr="true">font-size: 16px; font-weight: bold; color: #333;</string>
+        </property>
+        <property name="text">
+         <string>PLC数据监控系统</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnTagManagerHeader">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 1px solid #3498DB; background-color: #3498DB; color: white; padding: 5px 15px; border-radius: 3px; } QPushButton:hover { background-color: #2980B9; }</string>
+        </property>
+        <property name="text">
+         <string>设备配置</string>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBoxDevices"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnConnectPLC">
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>255</green>
+              <blue>127</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>39</red>
+              <green>191</green>
+              <blue>115</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>255</green>
+              <blue>127</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>39</red>
+              <green>191</green>
+              <blue>115</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>255</green>
+              <blue>127</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>39</red>
+              <green>191</green>
+              <blue>115</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 1px solid #BDC3C7; padding: 5px 15px; border-radius: 3px; } QPushButton:hover { background-color: #ECF0F1; }</string>
+        </property>
+        <property name="text">
+         <string>连接PLC</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnLoginStatus">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>登录</string>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QSplitter" name="mainSplitter">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="leftPanel">
+       <layout class="QVBoxLayout" name="leftPanelLayout">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelNavHeader">
+          <property name="styleSheet">
+           <string notr="true">font-weight: bold; padding: 5px; color: #555;</string>
+          </property>
+          <property name="text">
+           <string>快速导航</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="navigationList">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: 1px solid #DDD; background-color: white;</string>
+          </property>
+          <property name="AlternatingRowColors" stdset="0">
+           <bool>true</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>🏭 工艺总貌</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>📊 实时数据</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>📈 趋势图表</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>📁 历史数据</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>⚙️ 控制面板</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>🚨 报警中心</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTabWidget" name="mainTabWidget">
+       <property name="tabPosition">
+        <enum>QTabWidget::TabPosition::North</enum>
+       </property>
+       <property name="currentIndex">
+        <number>5</number>
+       </property>
+       <property name="tabsClosable">
+        <bool>false</bool>
+       </property>
+       <widget class="QWidget" name="tabProcessOverview">
+        <attribute name="title">
+         <string>🏭 工艺总貌</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="tabProcessOverviewLayout">
+         <item>
+          <widget class="QWidget" name="processToolbar" native="true">
+           <layout class="QHBoxLayout" name="processToolbarLayout">
+            <item>
+             <widget class="QPushButton" name="btnRefreshProcess">
+              <property name="toolTip">
+               <string>刷新工艺流程图中的所有标签</string>
+              </property>
+              <property name="text">
+               <string>刷新工艺图</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblProcessCount">
+              <property name="toolTip">
+               <string>工艺流程图中显示的标签数量</string>
+              </property>
+              <property name="text">
+               <string>工艺点: 0 个</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacerProcess">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboProcessLayout">
+              <item>
+               <property name="text">
+                <string>布局1: 标准流程</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>布局2: 紧凑模式</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>布局3: 详细模式</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGraphicsView" name="graphicsViewProcessFlow">
+           <property name="styleSheet">
+            <string notr="true">background-color: #F0F0F0; border: 1px solid #CCCCCC;</string>
+           </property>
+           <property name="renderHints">
+            <set>QPainter::RenderHint::Antialiasing|QPainter::RenderHint::TextAntialiasing</set>
+           </property>
+           <property name="dragMode">
+            <enum>QGraphicsView::DragMode::ScrollHandDrag</enum>
+           </property>
+           <property name="transformationAnchor">
+            <enum>QGraphicsView::ViewportAnchor::NoAnchor</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="processInfoWidget" native="true">
+           <layout class="QHBoxLayout" name="processInfoLayout"/>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabRealTime">
+        <attribute name="title">
+         <string>📊 实时数据</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="tabRealTimeLayout">
+         <item>
+          <widget class="QWidget" name="realTimeToolbar" native="true">
+           <layout class="QHBoxLayout" name="realTimeToolbarLayout">
+            <item>
+             <widget class="QLineEdit" name="searchBoxRealTime">
+              <property name="placeholderText">
+               <string>搜索标签...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblRealTimeCount">
+              <property name="toolTip">
+               <string>实时数据视图中显示的标签数量</string>
+              </property>
+              <property name="text">
+               <string>已选择: 0 个标签</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacerRealTime">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnWriteValue">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="toolTip">
+               <string>写入选中标签的值</string>
+              </property>
+              <property name="text">
+               <string>写入值</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/write.png</normaloff>:/icons/write.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnExportRealTime">
+              <property name="toolTip">
+               <string>导出当前显示的数据</string>
+              </property>
+              <property name="text">
+               <string>导出数据</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/export.png</normaloff>:/icons/export.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSplitter" name="splitterRealTime">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <widget class="QTableView" name="realTimeTableView">
+            <property name="styleSheet">
+             <string notr="true">QTableView { alternate-background-color: #F8F8F8; }</string>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabChart">
+        <attribute name="title">
+         <string>📈 趋势图表</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="tabChartLayout">
+         <item>
+          <widget class="QWidget" name="chartToolbar" native="true">
+           <layout class="QHBoxLayout" name="chartToolbarLayout">
+            <item>
+             <widget class="QComboBox" name="comboTimeRange">
+              <item>
+               <property name="text">
+                <string>最近1分钟</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>最近5分钟</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>最近15分钟</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>最近1小时</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>最近6小时</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>最近24小时</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnPlayChart">
+              <property name="toolTip">
+               <string>开始/停止实时数据刷新</string>
+              </property>
+              <property name="text">
+               <string>播放</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblChartCount">
+              <property name="toolTip">
+               <string>图表中显示的标签数量（初始为空）</string>
+              </property>
+              <property name="text">
+               <string>图表中: 0 个标签</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacerChart">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSaveChart">
+              <property name="toolTip">
+               <string>保存当前图表为图片</string>
+              </property>
+              <property name="text">
+               <string>保存图表</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCustomPlot" name="chartWidget" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: white; border: 1px solid #CCCCCC;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSplitter" name="splitterChart">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <widget class="QWidget" name="widgetChartRight" native="true">
+            <layout class="QVBoxLayout" name="verticalLayoutChartRight">
+             <item>
+              <widget class="QGroupBox" name="groupChartControls">
+               <property name="title">
+                <string>图表控制</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QPushButton" name="btnToggleGrid">
+                  <property name="toolTip">
+                   <string>显示/隐藏网格</string>
+                  </property>
+                  <property name="text">
+                   <string>显示网格</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>:/icons/grid.png</normaloff>:/icons/grid.png</iconset>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnToggleLegend">
+                  <property name="toolTip">
+                   <string>显示/隐藏图例</string>
+                  </property>
+                  <property name="text">
+                   <string>显示图例</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>:/icons/legend.png</normaloff>:/icons/legend.png</iconset>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnClearChart">
+                  <property name="toolTip">
+                   <string>移除图表中的所有标签</string>
+                  </property>
+                  <property name="text">
+                   <string>清空图表</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>:/icons/clear.png</normaloff>:/icons/clear.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabHistory">
+        <attribute name="title">
+         <string>📁 历史数据</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="tabHistoryLayout">
+         <item>
+          <widget class="QWidget" name="historyToolbar" native="true">
+           <layout class="QHBoxLayout" name="historyToolbarLayout">
+            <item>
+             <widget class="QDateTimeEdit" name="dateTimeFrom">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelTo">
+              <property name="text">
+               <string>至</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateTimeEdit" name="dateTimeTo">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSelectTrendTags">
+              <property name="text">
+               <string>选择标签</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnQueryHistory">
+              <property name="text">
+               <string>查询</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/search.png</normaloff>:/icons/search.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblTrendCount">
+              <property name="toolTip">
+               <string>历史趋势中显示的标签数量（初始为空）</string>
+              </property>
+              <property name="text">
+               <string>趋势中: 0 个标签</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacerHistory">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnExportHistory">
+              <property name="text">
+               <string>导出历史</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icons/export.png</normaloff>:/icons/export.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCustomPlot" name="historyChartWidget" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: white; border: 1px solid #CCCCCC;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabControl">
+        <attribute name="title">
+         <string>⚙️ 控制面板</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="tabControlLayout">
+         <item>
+          <widget class="QLabel" name="labelControl">
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px; color: #666666;</string>
+           </property>
+           <property name="text">
+            <string>控制面板 (开发中...)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabAlarm">
+        <attribute name="title">
+         <string>🚨 报警中心</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="tabAlarmLayout">
+         <item>
+          <widget class="QLabel" name="labelAlarm">
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px; color: #666666;</string>
+           </property>
+           <property name="text">
+            <string>报警中心 (开发中...)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1600</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="actionExport"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>视图(&amp;V)</string>
+    </property>
+    <addaction name="actionViewProcess"/>
+    <addaction name="actionViewRealTime"/>
+    <addaction name="actionViewChart"/>
+    <addaction name="actionViewHistory"/>
+    <addaction name="separator"/>
+    <addaction name="actionViewControl"/>
+    <addaction name="actionViewAlarm"/>
+    <addaction name="separator"/>
+    <addaction name="actionShowStatusBar"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>工具(&amp;T)</string>
+    </property>
+    <addaction name="actionTagManager"/>
+    <addaction name="separator"/>
+    <addaction name="actionConnectPLC"/>
+    <addaction name="actionDisconnectPLC"/>
+    <addaction name="separator"/>
+    <addaction name="actionDbConfig"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="actionUserManual"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">background-color: #E0E0E0; border-top: 1px solid #C0C0C0;</string>
+   </property>
+   <widget class="QLabel" name="statusLabelSystem">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>系统状态</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabelPLC">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: green; padding-left: 20px;</string>
+    </property>
+    <property name="text">
+     <string>PLC状态: 连接正常</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabelUpdate">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>数据更新: 100ms</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabelComm">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>通讯: 正常</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabelAlarm">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>报警: 无</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabelTime">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>系统时间: 2024-01-01 10:00:00</string>
+    </property>
+   </widget>
+  </widget>
+  <action name="actionExport">
+   <property name="text">
+    <string>导出数据</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actionViewProcess">
+   <property name="text">
+    <string>工艺总貌</string>
+   </property>
+  </action>
+  <action name="actionViewRealTime">
+   <property name="text">
+    <string>实时数据</string>
+   </property>
+  </action>
+  <action name="actionViewChart">
+   <property name="text">
+    <string>趋势图表</string>
+   </property>
+  </action>
+  <action name="actionViewHistory">
+   <property name="text">
+    <string>历史数据</string>
+   </property>
+  </action>
+  <action name="actionViewControl">
+   <property name="text">
+    <string>控制面板</string>
+   </property>
+  </action>
+  <action name="actionViewAlarm">
+   <property name="text">
+    <string>报警中心</string>
+   </property>
+  </action>
+  <action name="actionShowStatusBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>显示状态栏</string>
+   </property>
+  </action>
+  <action name="actionTagManager">
+   <property name="text">
+    <string>设备配置</string>
+   </property>
+  </action>
+  <action name="actionConnectPLC">
+   <property name="text">
+    <string>连接PLC</string>
+   </property>
+  </action>
+  <action name="actionDisconnectPLC">
+   <property name="text">
+    <string>断开PLC</string>
+   </property>
+  </action>
+  <action name="actionUserManual">
+   <property name="text">
+    <string>用户手册</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="actionDbConfig">
+   <property name="text">
+    <string>数据库设置</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

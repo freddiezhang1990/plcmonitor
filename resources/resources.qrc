@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/dark.css</file>
+        <file>styles/light.css</file>
+        <file>styles/mac.css</file>
+        <file>help/user_manual.html</file>
+    </qresource>
+</RCC>

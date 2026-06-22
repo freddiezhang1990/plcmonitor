@@ -1,0 +1,67 @@
+{
+    "devices": [
+        {
+            "id": "DefaultPLC",
+            "ip": "192.168.0.11",
+            "name": "Main_Plc",
+            "pollingInterval": 1000,
+            "port": 102,
+            "rack": 0,
+            "slot": 1,
+            "tagGroups": [
+                {
+                    "name": "未分组",
+                    "subGroups": [
+                    ],
+                    "tags": [
+                        {
+                            "address": "DB1.DBX0.0",
+                            "dataType": "BOOL",
+                            "dbEnabled": false,
+                            "name": "motor_running",
+                            "writable": true
+                        },
+                        {
+                            "address": "DB1.DBD2",
+                            "dataType": "REAL",
+                            "dbEnabled": false,
+                            "name": "temperature",
+                            "writable": false
+                        },
+                        {
+                            "address": "DB1.DBW6",
+                            "dataType": "INT",
+                            "dbEnabled": false,
+                            "name": "pressure",
+                            "writable": false
+                        },
+                        {
+                            "address": "DB1.DBW8",
+                            "dataType": "INT",
+                            "dbEnabled": false,
+                            "name": "flu",
+                            "writable": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "viewSelections": {
+        "0": [
+            "DefaultPLC/pressure",
+            "DefaultPLC/flu",
+            "DefaultPLC/temperature",
+            "DefaultPLC/motor_running"
+        ],
+        "1": [
+            "DefaultPLC/temperature"
+        ],
+        "2": [
+            "DefaultPLC/pressure"
+        ],
+        "3": [
+            "DefaultPLC/flu"
+        ]
+    }
+}

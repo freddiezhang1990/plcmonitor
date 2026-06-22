@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DeviceConfigDialog</class>
+ <widget class="QDialog" name="DeviceConfigDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>设备与标签配置</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="topToolBar">
+     <item>
+      <widget class="QLabel" name="viewLabel">
+       <property name="text"><string>当前视图：</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="viewCombo">
+       <item><property name="text"><string>实时数据</string></property></item>
+       <item><property name="text"><string>趋势图表</string></property></item>
+       <item><property name="text"><string>工艺总貌</string></property></item>
+       <item><property name="text"><string>历史趋势</string></property></item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="applyBtn">
+       <property name="enabled"><bool>false</bool></property>
+       <property name="text"><string>应用选择</string></property>
+      </widget>
+     </item>
+     <item><spacer name="horizontalSpacer"><property name="orientation"><enum>Qt::Orientation::Horizontal</enum></property></spacer></item>
+     <item><widget class="QPushButton" name="addDeviceBtn"><property name="text"><string>添加设备</string></property></widget></item>
+     <item><widget class="QPushButton" name="editDeviceBtn"><property name="text"><string>编辑设备</string></property></widget></item>
+     <item><widget class="QPushButton" name="deleteDeviceBtn"><property name="text"><string>删除设备</string></property></widget></item>
+     <item><widget class="QPushButton" name="addGroupBtn"><property name="text"><string>添加分组</string></property></widget></item>
+     <item><widget class="QPushButton" name="addTagBtn"><property name="text"><string>添加标签</string></property></widget></item>
+     <item><widget class="QPushButton" name="editTagBtn"><property name="text"><string>编辑标签</string></property></widget></item>
+     <item><widget class="QPushButton" name="deleteTagBtn"><property name="text"><string>删除标签</string></property></widget></item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QSplitter" name="mainSplitter">
+     <property name="orientation"><enum>Qt::Orientation::Horizontal</enum></property>
+     <widget class="QTreeView" name="treeView">
+      <property name="selectionBehavior"><enum>QAbstractItemView::SelectionBehavior::SelectRows</enum></property>
+      <property name="indentation"><number>20</number></property>
+      <property name="uniformRowHeights"><bool>true</bool></property>
+      <attribute name="headerDefaultSectionSize"><number>200</number></attribute>
+     </widget>
+     <widget class="QStackedWidget" name="propertyStack">
+      <widget class="QWidget" name="emptyPage"/>
+      <widget class="QWidget" name="devicePropertyPage">
+       <layout class="QFormLayout" name="deviceForm">
+        <property name="fieldGrowthPolicy"><enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum></property>
+        <item row="0" column="0"><widget class="QLabel" name="labelProtocol"><property name="text"><string>协议：</string></property></widget></item>
+        <item row="0" column="1"><widget class="QComboBox" name="protocolCombo"><item><property name="text"><string>S7 (西门子 S7-200/300/400/1200/1500)</string></property></item><item><property name="text"><string>ModbusTCP</string></property></item><item><property name="text"><string>ModbusRTU</string></property></item></widget></item>
+        <item row="1" column="0"><widget class="QLabel" name="labelDeviceId"><property name="text"><string>设备ID：</string></property></widget></item>
+        <item row="1" column="1"><widget class="QLineEdit" name="deviceIdEdit"/></item>
+        <item row="2" column="0"><widget class="QLabel" name="labelDeviceName"><property name="text"><string>设备名称：</string></property></widget></item>
+        <item row="2" column="1"><widget class="QLineEdit" name="deviceNameEdit"/></item>
+        <item row="3" column="0"><widget class="QLabel" name="labelIP"><property name="text"><string>IP地址：</string></property></widget></item>
+        <item row="3" column="1"><widget class="QLineEdit" name="ipEdit"/></item>
+        <item row="4" column="0"><widget class="QLabel" name="labelRack"><property name="text"><string>Rack：</string></property></widget></item>
+        <item row="4" column="1"><widget class="QSpinBox" name="rackSpinBox"><property name="minimum"><number>0</number></property><property name="maximum"><number>31</number></property></widget></item>
+        <item row="5" column="0"><widget class="QLabel" name="labelSlot"><property name="text"><string>Slot：</string></property></widget></item>
+        <item row="5" column="1"><widget class="QSpinBox" name="slotSpinBox"><property name="minimum"><number>0</number></property><property name="maximum"><number>31</number></property></widget></item>
+        <item row="6" column="0"><widget class="QLabel" name="labelPort"><property name="text"><string>端口：</string></property></widget></item>
+        <item row="6" column="1"><widget class="QSpinBox" name="portSpinBox"><property name="minimum"><number>1</number></property><property name="maximum"><number>65535</number></property><property name="value"><number>102</number></property></widget></item>
+        <item row="7" column="0"><widget class="QLabel" name="labelSlaveId"><property name="text"><string>从站ID：</string></property></widget></item>
+        <item row="7" column="1"><widget class="QSpinBox" name="slaveIdSpinBox"><property name="minimum"><number>1</number></property><property name="maximum"><number>247</number></property><property name="value"><number>1</number></property></widget></item>
+        <item row="8" column="0"><widget class="QLabel" name="labelPollingInterval"><property name="text"><string>轮询间隔(ms)：</string></property></widget></item>
+        <item row="8" column="1"><widget class="QSpinBox" name="pollingIntervalSpinBox"><property name="minimum"><number>100</number></property><property name="maximum"><number>10000</number></property><property name="value"><number>1000</number></property></widget></item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="groupPropertyPage">
+       <layout class="QFormLayout" name="groupForm">
+        <item row="0" column="0"><widget class="QLabel" name="labelGroupName"><property name="text"><string>分组名称：</string></property></widget></item>
+        <item row="0" column="1"><widget class="QLineEdit" name="groupNameEdit"/></item>
+        <item row="1" column="0"><widget class="QLabel" name="labelGroupPath"><property name="text"><string>所在路径：</string></property></widget></item>
+        <item row="1" column="1"><widget class="QLabel" name="groupPathLabel"><property name="text"><string>设备/上级分组</string></property></widget></item>
+        <item row="2" column="0" colspan="2"><widget class="QLabel" name="labelGroupTags"><property name="text"><string>包含标签：</string></property></widget></item>
+        <item row="3" column="0" colspan="2"><widget class="QListWidget" name="groupTagList"/></item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tagPropertyPage">
+       <layout class="QFormLayout" name="tagForm">
+        <item row="0" column="0"><widget class="QLabel" name="labelTagName"><property name="text"><string>标签名：</string></property></widget></item>
+        <item row="0" column="1"><widget class="QLineEdit" name="tagNameEdit"/></item>
+        <item row="1" column="0"><widget class="QLabel" name="labelAddress"><property name="text"><string>地址：</string></property></widget></item>
+        <item row="1" column="1"><widget class="QLineEdit" name="addressEdit"/></item>
+        <item row="2" column="0"><widget class="QLabel" name="labelDataType"><property name="text"><string>数据类型：</string></property></widget></item>
+        <item row="2" column="1"><widget class="QComboBox" name="dataTypeCombo"><item><property name="text"><string>BOOL</string></property></item><item><property name="text"><string>BYTE</string></property></item><item><property name="text"><string>WORD</string></property></item><item><property name="text"><string>DWORD</string></property></item><item><property name="text"><string>INT</string></property></item><item><property name="text"><string>DINT</string></property></item><item><property name="text"><string>REAL</string></property></item><item><property name="text"><string>STRING</string></property></item></widget></item>
+        <item row="3" column="0"><widget class="QLabel" name="labelWritable"><property name="text"><string>可写：</string></property></widget></item>
+        <item row="3" column="1"><widget class="QCheckBox" name="writableCheckBox"/></item>
+        <item row="4" column="0"><widget class="QLabel" name="labelDbEnabled"><property name="text"><string>记录DB：</string></property></widget></item>
+        <item row="4" column="1"><widget class="QCheckBox" name="dbEnabledCheckBox"><property name="checked"><bool>true</bool></property></widget></item>
+        <item row="5" column="0"><widget class="QLabel" name="labelDescription"><property name="text"><string>描述：</string></property></widget></item>
+        <item row="5" column="1"><widget class="QLineEdit" name="descriptionEdit"/></item>
+        <item row="6" column="0"><widget class="QLabel" name="labelScaling"><property name="text"><string>缩放系数：</string></property></widget></item>
+        <item row="6" column="1"><widget class="QDoubleSpinBox" name="scalingSpinBox"><property name="decimals"><number>3</number></property><property name="value"><double>0.000000000000000</double></property></widget></item>
+        <item row="7" column="0"><widget class="QLabel" name="labelOffset"><property name="text"><string>偏移量：</string></property></widget></item>
+        <item row="7" column="1"><widget class="QDoubleSpinBox" name="offsetSpinBox"><property name="decimals"><number>3</number></property></widget></item>
+        <item row="8" column="0"><widget class="QLabel" name="labelUnit"><property name="text"><string>单位：</string></property></widget></item>
+        <item row="8" column="1"><widget class="QLineEdit" name="unitEdit"/></item>
+        <item row="9" column="0" colspan="2">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title"><string>报警配置</string></property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0"><widget class="QLabel" name="label"><property name="text"><string>下限报警</string></property></widget></item>
+           <item row="1" column="1"><widget class="QCheckBox" name="chkMaxAlarm"><property name="text"><string>启用</string></property></widget></item>
+           <item row="2" column="1"><widget class="QComboBox" name="m_comboAlarmLevel"><item><property name="text"><string>信息</string></property></item><item><property name="text"><string>警告</string></property></item><item><property name="text"><string>错误</string></property></item><item><property name="text"><string>严重</string></property></item></widget></item>
+           <item row="1" column="0"><widget class="QLabel" name="label_2"><property name="text"><string>上限报警</string></property></widget></item>
+           <item row="2" column="0"><widget class="QLabel" name="label_3"><property name="text"><string>报警级别</string></property></widget></item>
+           <item row="0" column="1"><widget class="QCheckBox" name="chkMinAlarm"><property name="text"><string>启用</string></property></widget></item>
+           <item row="0" column="2"><widget class="QDoubleSpinBox" name="spinMinValue"/></item>
+           <item row="1" column="2"><widget class="QDoubleSpinBox" name="spinMaxValue"/></item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="bottomButtonLayout">
+     <item><spacer name="horizontalSpacer_2"><property name="orientation"><enum>Qt::Orientation::Horizontal</enum></property></spacer></item>
+     <item><widget class="QPushButton" name="saveBtn"><property name="text"><string>保存配置</string></property></widget></item>
+     <item><spacer name="horizontalSpacer_4"><property name="orientation"><enum>Qt::Orientation::Horizontal</enum></property></spacer></item>
+     <item><widget class="QPushButton" name="closeBtn"><property name="text"><string>关闭</string></property></widget></item>
+     <item><spacer name="horizontalSpacer_3"><property name="orientation"><enum>Qt::Orientation::Horizontal</enum></property></spacer></item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

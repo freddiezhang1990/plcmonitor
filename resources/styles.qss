@@ -1,0 +1,70 @@
+/* Dark theme */
+QMainWindow, QDialog, QWidget {
+    background-color: #2b2b2b;
+    color: #d0d0d0;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 10pt;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #3c3c3c;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 6px 12px;
+    min-height: 20px;
+}
+
+QPushButton:hover {
+    background-color: #4a4a4a;
+    border-color: #666;
+}
+
+QPushButton:pressed {
+    background-color: #2d2d2d;
+}
+
+QPushButton:disabled {
+    color: #888;
+    background-color: #353535;
+}
+
+/* 标签 */
+QLabel {
+    color: #d0d0d0;
+    padding: 2px;
+}
+
+/* 状态栏 */
+QStatusBar {
+    background-color: #252525;
+    color: #aaa;
+    border-top: 1px solid #444;
+}
+
+/* 文本框 */
+QLineEdit, QTextEdit, QPlainTextEdit {
+    background-color: #353535;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 4px 8px;
+    color: #e0e0e0;
+    selection-background-color: #0063b1;
+}
+
+/* 表格 */
+QTableView, QTableWidget {
+    background-color: #2d2d2d;
+    alternate-background-color: #333;
+    gridline-color: #444;
+    color: #d0d0d0;
+    border: 1px solid #444;
+}
+
+QHeaderView::section {
+    background-color: #3a3a3a;
+    color: #d0d0d0;
+    border: 1px solid #444;
+    padding: 4px;
+    font-weight: bold;
+}

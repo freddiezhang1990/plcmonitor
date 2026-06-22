@@ -1,0 +1,25 @@
+{
+    "connection": {
+        "auto_connect": true,
+        "retry_count": 3,
+        "timeout": 5000
+    },
+    "database": {
+        "mysql_database": "",
+        "mysql_host": "",
+        "mysql_password": "",
+        "mysql_port": 3306,
+        "mysql_user": ""
+    },
+    "plc": {
+        "ip": "192.168.0.1",
+        "port": 102,
+        "rack": 0,
+        "slot": 2
+    },
+    "polling": {
+        "auto_start": true,
+        "enabled": true,
+        "interval": 1000
+    }
+}

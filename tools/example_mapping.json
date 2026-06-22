@@ -1,0 +1,191 @@
+{
+  "projectName": "示例工艺项目",
+  "diagramFile": "tools/example_process.svg",
+  "version": "2.0",
+  "defaultDeviceId": "PLC_01",
+  "mappings": [
+    {
+      "svgId": "PUMP_A01",
+      "tagKey": "PLC_01/pump_a01",
+      "labelName": "循环泵 A",
+      "deviceType": "pump",
+      "clickAction": "showStatus",
+      "dblClickAction": "showControlPanel",
+      "tooltip": "循环泵 A | 状态：{running}",
+      "contextMenu": [
+        {
+          "text": "启动",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/pump_a01_cmd", "value": 1 },
+          "confirm": true,
+          "confirmMsg": "确认启动循环泵 A？"
+        },
+        {
+          "text": "停止",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/pump_a01_cmd", "value": 0 },
+          "confirm": true,
+          "confirmMsg": "确认停止循环泵 A？"
+        },
+        { "text": "详细信息", "action": "showDetail" }
+      ],
+      "controlPanel": {
+        "type": "switch",
+        "writeTagKey": "PLC_01/pump_a01_cmd",
+        "feedbackTagKey": "PLC_01/pump_a01",
+        "onLabel": "启动",
+        "offLabel": "停止",
+        "timeout": 5000,
+        "monitorTags": [
+          { "tagKey": "PLC_01/pump_a01_current", "label": "电流", "unit": "A" },
+          { "tagKey": "PLC_01/pump_a01_speed", "label": "转速", "unit": "rpm" }
+        ]
+      },
+      "statusBinding": [
+        {
+          "tagKey": "PLC_01/pump_a01",
+          "type": "color",
+          "trueColor": "#00cc00",
+          "falseColor": "#cc0000"
+        }
+      ]
+    },
+    {
+      "svgId": "VALVE_C01",
+      "tagKey": "PLC_01/valve_c01",
+      "labelName": "调节阀 C01",
+      "deviceType": "valve_regulating",
+      "clickAction": "showStatus",
+      "dblClickAction": "showControlPanel",
+      "tooltip": "调节阀 C01 | 开度：{position}%",
+      "contextMenu": [
+        {
+          "text": "全开",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/valve_c01_cmd", "value": 100 },
+          "confirm": true
+        },
+        {
+          "text": "全关",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/valve_c01_cmd", "value": 0 },
+          "confirm": true
+        },
+        { "text": "设定开度...", "action": "showControlPanel" }
+      ],
+      "controlPanel": {
+        "type": "analog",
+        "writeTagKey": "PLC_01/valve_c01_cmd",
+        "feedbackTagKey": "PLC_01/valve_c01",
+        "unit": "%",
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "statusBinding": [
+        {
+          "tagKey": "PLC_01/valve_c01",
+          "type": "dynamicColor",
+          "calc": "valveColorByPosition"
+        }
+      ]
+    },
+    {
+      "svgId": "VALVE_V02",
+      "tagKey": "PLC_01/valve_v02",
+      "labelName": "开关阀 V02",
+      "deviceType": "valve_onoff",
+      "clickAction": "showStatus",
+      "dblClickAction": "showControlPanel",
+      "tooltip": "开关阀 V02 | 状态：{status}",
+      "contextMenu": [
+        {
+          "text": "打开",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/valve_v02_cmd", "value": 1 },
+          "confirm": true
+        },
+        {
+          "text": "关闭",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/valve_v02_cmd", "value": 0 },
+          "confirm": true
+        }
+      ],
+      "controlPanel": {
+        "type": "switch",
+        "writeTagKey": "PLC_01/valve_v02_cmd",
+        "feedbackTagKey": "PLC_01/valve_v02",
+        "onLabel": "打开",
+        "offLabel": "关闭",
+        "timeout": 5000
+      },
+      "statusBinding": [
+        {
+          "tagKey": "PLC_01/valve_v02",
+          "type": "color",
+          "trueColor": "#00cc00",
+          "falseColor": "#666666"
+        }
+      ]
+    },
+    {
+      "svgId": "TANK_01",
+      "tagKey": "PLC_01/tank_01_level",
+      "labelName": "液罐 T-01",
+      "deviceType": "tank",
+      "clickAction": "showStatus",
+      "dblClickAction": "showDetail",
+      "tooltip": "液罐 T-01 | 液位：{level}%",
+      "contextMenu": [
+        { "text": "查看液位趋势", "action": "showDetail" }
+      ],
+      "statusBinding": [
+        {
+          "tagKey": "PLC_01/tank_01_level",
+          "type": "dynamicColor",
+          "calc": "valveColorByPosition"
+        }
+      ]
+    },
+    {
+      "svgId": "FAN_01",
+      "tagKey": "PLC_01/fan_01",
+      "labelName": "排风扇",
+      "deviceType": "fan",
+      "clickAction": "showStatus",
+      "dblClickAction": "showControlPanel",
+      "tooltip": "排风扇 | 状态：{running}",
+      "contextMenu": [
+        {
+          "text": "启动",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/fan_01_cmd", "value": 1 },
+          "confirm": true
+        },
+        {
+          "text": "停止",
+          "action": "writeTag",
+          "params": { "tagKey": "PLC_01/fan_01_cmd", "value": 0 },
+          "confirm": true
+        }
+      ],
+      "controlPanel": {
+        "type": "switch",
+        "writeTagKey": "PLC_01/fan_01_cmd",
+        "feedbackTagKey": "PLC_01/fan_01",
+        "onLabel": "启动",
+        "offLabel": "停止",
+        "timeout": 5000
+      },
+      "statusBinding": [
+        {
+          "tagKey": "PLC_01/fan_01",
+          "type": "color",
+          "trueColor": "#00cc00",
+          "falseColor": "#cc0000"
+        }
+      ]
+    }
+  ]
+}
